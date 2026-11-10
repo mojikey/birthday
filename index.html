@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>A Birthday Surprise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <!-- Add your own backgrounds by setting background-image on #welcome, #garden, #letter, #picnic and #cake. -->
+  <section class="scene active" id="welcome">
+    <div class="content">
+      <p class="eyebrow">A special birthday...</p>
+      <h1 class="welcome-title">Happy Birthday!</h1>
+      <p class="message">May your day be filled with love, joy and happiness. ♡</p>
+      <button class="btn" onclick="showScene(1)">Let's Begin ✨</button>
+      <p class="subline">You're so special! ♡</p>
+    </div>
+  </section>
+
+  <section class="scene" id="garden">
+    <div class="content">
+      <p class="eyebrow">A garden full of love</p>
+      <h1>For someone who<br>loves flowers ♡</h1>
+      <p class="flower-intro">Choose all four flowers and discover what's inside...</p>
+    </div>
+    <div class="flower-row">
+      <button class="flower-choice" href="/assets/Pink tulip.png" onclick="revealFlower(0,this)"><span class="flower-icon">🌷</span><span class="flower-label">Pink rose</span></button>
+      <button class="flower-choice" onclick="revealFlower(1,this)"><span class="flower-icon">🌹</span><span class="flower-label">Red rose</span></button>
+      <button class="flower-choice" onclick="revealFlower(2,this)"><span class="flower-icon">🌼</span><span class="flower-label">White blossom</span></button>
+      <button class="flower-choice" onclick="revealFlower(3,this)"><span class="flower-icon">🪻</span><span class="flower-label">Hyacinth</span></button>
+    </div>
+    <div class="flower-message" id="flower-message">Tap a flower to discover its message ♡</div>
+    <div class="counter" id="flower-counter">0 of 4 flowers discovered 🌸</div>
+    <button class="btn garden-next" id="garden-next" onclick="showScene(2)">Next ✨</button>
+  </section>
+
+  <section class="scene" id="letter">
+    <!-- Everything inside .shop-stage is placed on the background image itself, so it lines up on any screen -->
+    <div class="shop-stage letter-stage">
+      <div class="content letter-intro" id="letter-intro">
+        <p class="eyebrow">A little message from me</p>
+        
+        <p class="letter-hint" id="letter-hint">Tap the pink envelope to open your letter 💌</p>
+      </div>
+     <button class="envelope-button open-letter-btn"
+        id="envelope-button"
+        onclick="openLetter()"
+        aria-label="Open your birthday letter">
+  <span>OPEN</span>
+  <span class="open-letter-heart">💌</span>
+</button>
+
+      </button>
+      <article class="letter-paper" id="letter-paper">
+      <span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">✦</span><span class="spark s4">✧</span>
+      <p class="letter-orn">✦ ✧ ✦</p>
+      <h2>My Beautiful Girl,</h2>
+      <p>Today is a special day for me , because it is the day God make the most beautiful eyse of yours and the cutest face. </p>
+      <p>I want you to know how wonderful you are and I'm proud to be your man .</p>
+      <p>You bring the real happiness ,kindness and joy to my life .I hope all your dreams come true and may your heart always fiiled with love.</p>
+      <p>You are the best , thank you so much for being you , I love you. </p>
+      <p class="letter-sign">Happy Birthday, my love! ♡<br>Forever yours,</p>
+    </article>
+    </div>
+    <button class="btn letter-next" id="letter-next" onclick="showScene(3)">Next ✨</button>
+  </section>
+
+  <section class="scene" id="picnic">
+    <div class="content">
+      <p class="eyebrow">A little birthday picnic</p>
+      <h1>Flowers are lovely...</h1>
+      <p class="message">But a beautiful day also needs your favourite joojeh! ♡</p>
+      <button class="btn" onclick="showScene(4)">One last surprise ✨</button>
+    </div>
+  </section>
+
+  <section class="scene" id="memories">
+    <!-- Photos: put memory1.jpg ... memory8.jpg in the images folder, then edit each caption below. Delete a <figure> to remove a photo. -->
+      <figure class="memory" style="--x:10%;--y:26%;--r:-5deg" onclick="openMemory(this)" tabindex="0">
+        <div class="memory-photo"><img src="images/1761285425402.jpg" alt="" onerror="this.style.display='none'"></div>
+        <figcaption>you are so cute even when you were a little girl❤️ ♡</figcaption>
+      </figure>
+      <figure class="memory" style="--x:30%;--y:25%;--r:3deg" onclick="openMemory(this)" tabindex="0">
+        <div class="memory-photo"><img src="images/20260530_141809.jpg" alt="" onerror="this.style.display='none'"></div>
+        <figcaption>I cannot live a day without thinking about you ♡</figcaption>
+      </figure>
+      <figure class="memory" style="--x:50%;--y:26%;--r:-2deg" onclick="openMemory(this)" tabindex="0">
+        <div class="memory-photo"><img src="images/IMG-20260323-WA0001.jpg" alt="" onerror="this.style.display='none'"></div>
+        <figcaption>I love you much more than Pleg loves you😌 ♡</figcaption>
+      </figure>
+      <figure class="memory" style="--x:70%;--y:25%;--r:4deg" onclick="openMemory(this)" tabindex="0">
+        <div class="memory-photo"><img src="images/IMG-20260405-WA0009.jpg" alt="" onerror="this.style.display='none'"></div>
+        <figcaption>You beautiful eyes and your wonderfull smile is lovely❣️ ♡</figcaption>
+      </figure>
+      <figure class="memory" style="--x:90%;--y:26%;--r:-4deg" onclick="openMemory(this)" tabindex="0">
+        <div class="memory-photo"><img src="images/IMG-20260808-WA0000.jpg" alt="" onerror="this.style.display='none'"></div>
+        <figcaption>look at my girl she is perfect 💋 ♡</figcaption>
+      </figure>
+      <figure class="memory" style="--x:17%;--y:76%;--r:-3deg" onclick="openMemory(this)" tabindex="0">
+        <div class="memory-photo"><img src="images/IMG-20260911-WA0011.jpg" alt="" onerror="this.style.display='none'"></div>
+        <figcaption> I hope one day we take a real picture like this ♡</figcaption>
+      </figure>
+      <figure class="memory" style="--x:50%;--y:77%;--r:3deg" onclick="openMemory(this)" tabindex="0">
+        <div class="memory-photo"><img src="images/Screenshot_20250612-234542_Gallery.jpg" alt="" onerror="this.style.display='none'"></div>
+        <figcaption>.Do you remember this picture?  ♡</figcaption>
+      </figure>
+      <figure class="memory" style="--x:83%;--y:76%;--r:-4deg" onclick="openMemory(this)" tabindex="0">
+        <div class="memory-photo"><img src="images/ToonTap_20250723_2130342259566485049.jpg" alt="" onerror="this.style.display='none'"></div>
+        <figcaption>we make a perfect match aren't we? ♡</figcaption>
+      </figure>
+    <div class="memory-note"><p>Even in the simplest moments, you make life more beautiful. ♡</p></div>
+    <button class="btn memories-next" onclick="showScene(5)">Next ✨</button>
+  </section>
+
+  <section class="scene" id="shop" data-step="0">
+    <!-- Overlays that line up with the door and the three signs in the background image -->
+    <div class="shop-stage">
+      <!-- entrance: tap the chalkboard sign to enter -->
+      <button class="shop-door" onclick="enterShop()" aria-label="Enter the flower shop"></button>
+      <button class="btn shop-enter" onclick="enterShop()">Enter ✨</button>
+      <!-- cupboard shelves (right side of image: big empty shelving unit) -->
+      <div class="cupboard" id="cupboard">
+        <div class="shelf shelf-top" id="shelf-top"></div>
+        <div class="shelf shelf-mid" id="shelf-mid"></div>
+        <div class="shelf shelf-bot" id="shelf-bot"></div>
+      </div>
+      <!-- stage platform (centre-bottom of image) -->
+      <div class="stage-platform" id="stage-platform"></div>
+    </div>
+    <div class="content shop-head">
+      <p class="eyebrow" id="shop-eyebrow">A little flower shop</p>
+      <h1 id="shop-title">Welcome, beautiful ♡</h1>
+      <p class="message" id="shop-text">Tap the door and come inside to make a bouquet just for you.</p>
+    </div>
+    <p class="shop-count" id="shop-count">Pick flowers from the shelves 🌸</p>
+    <div class="bouquet-wrap" id="bouquet-wrap"></div>
+    <button class="btn shop-clear" id="shop-clear" onclick="clearBouquet()">Clear 🔄</button>
+    <button class="btn shop-download" id="shop-download" onclick="downloadBouquet()">Download Bouquet ⬇</button>
+    <button class="btn shop-action" id="shop-action" onclick="shopAction()" disabled>Create Your Bouquet ✨</button>
+  </section>
+
+  <section class="scene" id="cake">
+    <div class="content cake-panel">
+      <p class="eyebrow">Make a birthday wish</p>
+      <h1 id="cake-title">Blow out the candles ♡</h1>
+      <p class="cake-message" id="cake-message">Tap each flame to blow it out 🔥💨</p>
+    </div>
+    <div class="cake-wrap" id="cake-wrap"></div>
+    <button class="btn" onclick="finishBirthday()" id="thank-you" disabled>Thank you! ♡</button>
+  </section>
+
+  <section class="scene" id="finale">
+    <div class="fb-magic" id="fb-magic"></div>
+    <div class="content fb-head">
+      <p class="eyebrow">Happy Birthday</p>
+      <h1>A bouquet for you ♡</h1>
+    </div>
+    <div class="fb-bouquet" id="fb-bouquet"></div>
+    <div class="fb-actions">
+      <button class="btn" onclick="location.reload()">Do it all again ↺</button>
+      <button class="btn btn-alt" onclick="showScene(0)">Review all pages 📖</button>
+    </div>
+  </section>
+
+  <div class="memory-view" id="memory-view" onclick="closeMemory()">
+    <div class="memory-view-card" onclick="event.stopPropagation()">
+      <button class="memory-close" onclick="closeMemory()" aria-label="Close">✕</button>
+      <div class="memory-view-photo"><img id="memory-view-img" alt=""></div>
+      <p id="memory-view-text"></p>
+    </div>
+  </div>
+  <button class="music-control" id="music-control" onclick="toggleMusic()" aria-label="Play birthday music">♫</button>
+  <div class="navigation" id="navigation" aria-label="Scene navigation"></div>
+  <div id="falling-layer" aria-hidden="true"></div>
+  <!-- Put a music file named happy-birthday.mp3 beside this HTML file. -->
+  <audio id="birthday-music" src="Audio/Birthday (MP3_320K).m4a" loop preload="auto"></audio>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

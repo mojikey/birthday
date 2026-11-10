@@ -1,0 +1,2809 @@
+/*
+  BIRTHDAY WEBSITE — ORGANIZED STYLESHEET
+  Sections follow the order of the scenes in index.html.
+  Existing visual rules and background paths are preserved.
+  To change a page background, edit that page's background-image rule.
+*/
+
+
+/* ====================================================================
+   GLOBAL FOUNDATION — fonts, colours, app, scenes and common buttons
+   ==================================================================== */
+
+:root {
+  --pink: #f45b98;
+  --deep-pink: #a82d61;
+  --text: #762747;
+  --button-text: #fff;
+  --glass: rgba(255,255,255,.78);
+  --scene-bg: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Quicksand, sans-serif;
+  overflow: hidden;
+  background: #f9dce8;
+  color: var(--text);
+}
+
+button {
+  font: inherit;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background-color: #f9dce8;
+  background-image: var(--scene-bg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .55s ease, visibility .55s ease;
+}
+
+.scene.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,rgba(255,238,246,.10),rgba(255,238,246,.04));
+  pointer-events: none;
+}
+
+.content {
+  position: absolute;
+  z-index: 2;
+  width: min(90%, 620px);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: clamp(11px, 1.5vw, 15px);
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+h1, h2, .script {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  color: var(--deep-pink);
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(30px, 4.4vw, 50px);
+  line-height: 1.12;
+}
+
+p {
+  line-height: 1.55;
+}
+
+.message {
+  margin: 16px auto 0;
+  max-width: 440px;
+  font-size: clamp(14px, 1.8vw, 18px);
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 30px;
+  border: 2px solid rgba(255,255,255,.75);
+  border-radius: 999px;
+  background: linear-gradient(135deg,#ff8fba,#ed4f91);
+  color: var(--button-text);
+  font-weight: 700;
+  font-size: clamp(14px,1.7vw,17px);
+  box-shadow: 0 7px 18px rgba(177,48,101,.24);
+  cursor: pointer;
+  transition: transform .18s ease, filter .18s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.04);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: scale(.97);
+}
+
+.subline {
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.eyebrow {
+  padding-left: .14em;
+}
+
+h1, .message {
+  text-wrap: balance;
+}
+
+.btn-alt {
+  background: linear-gradient(135deg,#c9a0dc,#a874c9);
+}
+
+
+/* ====================================================================
+   1. WELCOME PAGE — #welcome
+   ==================================================================== */
+
+#welcome .content {
+  top: 13%;
+}
+
+#welcome .welcome-title {
+  margin-top: 18px;
+}
+
+#welcome .message {
+  margin-top: 24px;
+}
+
+#welcome .btn {
+  margin-top: 28px;
+}
+
+#welcome {
+  background-image: url("assets/Kawaii\ Pink\ Bedroom\ Birthday\ Welcome.png");
+}
+
+#welcome .content {
+  top: 14%;
+  left: 58%;
+  width: min(60%, 700px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#welcome .welcome-title {
+  margin-top: 10px;
+}
+
+#welcome .message {
+  margin: 22px auto 0;
+  max-width: 540px;
+}
+
+#welcome .btn {
+  margin-top: 26px;
+}
+
+#welcome .subline {
+  margin: 14px 0 0;
+}
+
+#welcome .content {
+  top: 21%;
+  left: 63%;
+}
+
+#welcome .content {
+  top: 27%;
+}
+
+
+/* ====================================================================
+   2. FLOWER GARDEN — #garden
+   ==================================================================== */
+
+#garden .content {
+  top: 8%;
+}
+
+.flower-intro {
+  margin: 12px auto 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.flower-row {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 66%;
+  transform: translate(-50%,-50%);
+  width: min(92%, 650px);
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: clamp(7px,2vw,22px);
+  align-items: end;
+}
+
+.flower-choice {
+  border: 0;
+  padding: 0 3px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.flower-icon {
+  display: block;
+  font-size: clamp(38px,6vw,64px);
+  line-height: 1.2;
+  filter: drop-shadow(0 3px 3px #8b3c5b30);
+  transition: transform .2s;
+}
+
+.flower-choice:hover .flower-icon, .flower-choice.found .flower-icon {
+  transform: translateY(-8px) scale(1.08);
+}
+
+.flower-label {
+  display: block;
+  margin-top: 8px;
+  padding: 8px 5px;
+  border-radius: 999px;
+  background: linear-gradient(135deg,#ff9ec4,#ed5d9b);
+  color: white;
+  font-size: clamp(10px,1.4vw,14px);
+  font-weight: 700;
+  box-shadow: 0 4px 10px #9e3c6630;
+}
+
+.flower-message {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 82%;
+  transform: translateX(-50%);
+  width: min(86%,480px);
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 20px;
+  background: var(--glass);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.counter {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 3.5%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: #ffe2eeed;
+  border: 1px solid #f4a1c2;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#garden {
+  background-image: url("assets/Kawaii Garden Archway with Hello Kitty.png");
+}
+
+#garden .content {
+  top: 6%;
+  width: min(90%, 560px);
+  padding: 20px 28px 22px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.74);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255,255,255,.9);
+  box-shadow: 0 10px 30px rgba(168,45,97,.18);
+}
+
+#garden .eyebrow {
+  margin-bottom: 8px;
+}
+
+#garden .flower-intro {
+  margin-bottom: 0;
+}
+
+#garden .flower-message {
+  top: 80%;
+  width: min(90%, 620px);
+  min-height: 78px;
+  padding: 18px 26px;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(17px, 2.1vw, 24px);
+  line-height: 1.4;
+  background: rgba(255,255,255,.9);
+  border: 2px solid #f4a1c2;
+  box-shadow: 0 10px 28px rgba(168,45,97,.25);
+}
+
+#garden .flower-message.pop {
+  animation: msg-pop .35s ease;
+}
+.garden-next {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  animation: next-in .5s ease both;
+}
+
+.garden-next.show {
+  display: inline-flex;
+}
+
+.garden-next:hover {
+  transform: translate(-50%, -52%);
+}
+.garden-next.show {
+  display: inline-flex;
+  animation: next-in .5s ease both;
+}
+
+.garden-next.show:hover {
+  transform: translate(-50%, calc(-50% - 1px)) !important;
+  transition: transform 0.25s ease;
+}
+
+
+/* ====================================================================
+   3. LETTER PAGE — #letter
+   ==================================================================== */
+
+#letter .content {
+  top: 9%;
+}
+
+.envelope-button {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 53%;
+  transform: translate(-50%,-50%);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* .envelope-icon {
+  display: block;
+  font-size: clamp(100px,17vw,170px);
+  filter: drop-shadow(0 9px 8px #8b31502b);
+  transition: transform .25s;
+} */
+
+/* .envelope-button:hover .envelope-icon {
+  transform: translateY(-7px) rotate(-3deg);
+} */
+
+.letter-hint {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 72%;
+  transform: translateX(-50%);
+  width: 90%;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.letter-paper {
+  display: none;
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%,-50%);
+  width: min(86%,520px);
+  max-height: 68%;
+  overflow: auto;
+  padding: clamp(20px,4vw,38px);
+  border: 7px double #e9a2bd;
+  border-radius: 12px;
+  background: rgba(255,248,239,.96);
+  box-shadow: 0 12px 35px #71334a44;
+  text-align: left;
+}
+
+.letter-paper.open {
+  display: block;
+  animation: paper-in .45s ease both;
+}
+
+.letter-paper h2 {
+  text-align: center;
+  color: var(--deep-pink);
+  margin: 8px 0 18px;
+}
+
+.letter-paper p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.letter-sign {
+  margin-top: 18px;
+  text-align: right;
+  font-family: "Dancing Script",cursive;
+  font-size: 25px !important;
+  color: var(--deep-pink);
+}
+
+.env-svg {
+  width: clamp(190px, 26vw, 330px);
+  height: auto;
+  animation: env-float 3s ease-in-out infinite;
+}
+
+.envelope-button:hover .env-svg {
+  animation-play-state: paused;
+  transform: translateY(-8px) rotate(-3deg) scale(1.05);
+}
+
+#letter .letter-hint {
+  top: 75%;
+  width: auto;
+  padding: 9px 20px;
+  border-radius: 999px;
+  background: var(--glass);
+  border: 1.5px solid #f4a1c2;
+  box-shadow: 0 5px 14px rgba(168,45,97,.18);
+}
+
+.letter-paper {
+  top: 49%;
+  max-height: 64%;
+  width: min(88%, 560px);
+  background-color: #fffaf1;
+  background-image: repeating-linear-gradient(transparent 0 33px, rgba(244,150,190,.28) 33px 34px);
+  border: 6px solid #ffd0e0;
+  border-radius: 22px;
+  outline: 2px dashed #f48fb1;
+  outline-offset: -15px;
+  box-shadow: 0 14px 38px rgba(113,51,74,.3);
+}
+
+.letter-paper::before {
+  content: "";
+  position: sticky;
+  display: block;
+  width: 110px;
+  height: 26px;
+  margin: -34px auto 6px;
+  transform: rotate(-3deg);
+  background: repeating-linear-gradient(45deg,#ffb3cf 0 8px,#ffd3e3 8px 16px);
+  opacity: .9;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.12);
+}
+
+.letter-paper h2 {
+  color: var(--deep-pink);
+}
+
+.letter-paper h2::after {
+  content: " 💗";
+  font-size: .6em;
+}
+
+.letter-sign::after {
+  content: " 🌸";
+}
+
+.letter-next {
+  display: none;
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 7%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.letter-next.show {
+  display: inline-flex;
+  animation: next-in .5s .5s ease both;
+}
+
+.letter-next.show:hover {
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.letter-paper {
+  overflow: hidden !important;
+  max-height: none !important;
+  top: 50%;
+  left: 67%;
+  transform: translate(-50%, -50%) !important;
+  width: min(56%, 700px);
+  font-size: clamp(11px, 2vh, 17px);
+  padding: clamp(14px,2.8vh,32px) clamp(18px,3.2vw,40px) !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.letter-paper::before {
+  display: none !important;
+}
+
+.letter-paper.open {
+  animation: magic-in .8s cubic-bezier(.2,.9,.3,1.2) both !important;
+}
+
+.letter-paper p {
+  font-size: 1em !important;
+  line-height: 1.6;
+  margin: .5em 0;
+  color: #6b3350;
+}
+
+.letter-orn {
+  text-align: center;
+  color: #e0a63e !important;
+  letter-spacing: .5em;
+  margin: 0 0 .2em !important;
+}
+
+.letter-paper h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(26px, 4.6vh, 42px);
+  margin: .1em 0 .5em !important;
+  background: linear-gradient(90deg,#c2478a,#8f63d6,#e0a63e,#c2478a);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+.letter-paper h2::after {
+  content: "";
+}
+
+.letter-sign {
+  font-size: clamp(20px, 3.6vh, 30px) !important;
+}
+
+.spark {
+  position: absolute;
+  color: #e7a93a;
+  text-shadow: 0 0 8px #fff;
+  animation: twinkle 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.spark.s1 {
+  top: 10px;
+  left: 18px;
+  font-size: 20px;
+}
+
+.spark.s2 {
+  top: 16%;
+  right: 20px;
+  font-size: 16px;
+  animation-delay: .6s;
+  color: #c58ae8;
+}
+
+.spark.s3 {
+  bottom: 18%;
+  left: 16px;
+  font-size: 15px;
+  animation-delay: 1.1s;
+  color: #f27aa8;
+}
+
+.spark.s4 {
+  bottom: 12px;
+  right: 24px;
+  font-size: 22px;
+  animation-delay: 1.6s;
+}
+
+#letter .letter-intro {
+  position: absolute;
+  left: 60%;
+  top: 40%;
+  width: 46%;
+  transform: translate(-50%,-50%);
+}
+
+#letter .letter-intro .eyebrow {
+  font-size: calc(var(--sh) * .0165);
+}
+
+#letter .letter-intro h1 {
+  font-size: calc(var(--sh) * .075);
+}
+
+#letter .letter-hint {
+  position: static;
+  transform: none;
+  width: auto;
+  display: inline-block;
+  margin-top: calc(var(--sh) * .03);
+  padding: .55em 1.3em;
+  font-size: calc(var(--sh) * .02);
+  border-radius: 999px;
+  background: rgba(255,255,255,.7);
+  border: 1.5px solid #f4a1c2;
+  box-shadow: 0 5px 14px rgba(168,45,97,.18);
+  animation: hint-bob 1.6s ease-in-out infinite;
+}
+
+#letter .letter-hint::before {
+  content: "👈 ";
+}
+
+#letter .envelope-button {
+  position: absolute;
+  left: 3%;
+  top: 57%;
+  width: 33.5%;
+  height: 37%;
+  transform: none;
+  border-radius: 14px;
+  pointer-events: auto;
+  cursor: pointer;
+  animation: door-glow 1.5s ease-in-out infinite alternate;
+}
+
+#letter .envelope-button:hover {
+  background: rgba(255,255,255,.12);
+}
+
+#letter .envelope-button .env-svg {
+  display: none;
+}
+
+#letter .letter-paper {
+  left: 60%;
+  top: 52.5%;
+  width: 46%;
+  height: auto;
+  max-height: 67%;
+  transform: translate(-50%,-50%);
+  background: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  font-size: calc(var(--sh) * .0185);
+  overflow: hidden !important;
+  pointer-events: none;
+}
+
+#letter .letter-paper.open {
+  animation: ink-in .9s ease both !important;
+}
+
+#letter .letter-paper h2 {
+  font-size: calc(var(--sh) * .05);
+}
+
+#letter .letter-sign {
+  font-size: calc(var(--sh) * .036) !important;
+}
+
+#letter .letter-paper p {
+  color: #6b3350;
+}
+
+#letter .spark.s1 {
+  top: -2%;
+  left: 0;
+}
+
+#letter .spark.s2 {
+  top: 8%;
+  right: 0;
+}
+
+#letter .spark.s3 {
+  bottom: 10%;
+  left: 0;
+}
+
+#letter .spark.s4 {
+  bottom: -2%;
+  right: 4%;
+}
+
+#letter .letter-next {
+  left: 60%;
+  bottom: 3%;
+}
+
+#letter {
+  background-image: url("assets/Hello\ Kitty’s\ Dreamy\ Pink\ Letter\ Garden.png");
+}
+
+#letter .envelope-button {
+  left: 22% !important;
+  top: 55% !important;
+}
+
+#letter .letter-hint {
+  left: 22% !important;
+  top: 76% !important;
+}
+
+.letter-paper {
+  left: 67%;
+  top: 50%;
+  transform: translate(-50%,-50%) !important;
+}
+
+.letter-paper .spark.s1 {
+  top: 6px;
+  left: 14px;
+}
+
+.letter-paper .spark.s2 {
+  top: 8%;
+  right: 14px;
+}
+
+.letter-paper .spark.s3 {
+  bottom: 16%;
+  left: 10px;
+}
+
+.letter-paper .spark.s4 {
+  bottom: 8px;
+  right: 18px;
+}
+
+.letter-next {
+  left: 67% !important;
+}
+
+#letter {
+  background-image: url("assets/Hello\ Kitty’s\ Dreamy\ Pink\ Letter\ Room.png");
+}
+
+.envelope-button {
+  left: 50% !important;
+  top: 54% !important;
+  transform: translate(-50%,-50%) !important;
+  width: clamp(130px, 18vw, 230px);
+  height: clamp(120px, 16vw, 210px);
+  border-radius: 50%;
+  border: 0 !important;
+  background: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hk-head {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hk-glow {
+  animation: hk-pulse 1.6s ease-in-out infinite;
+}
+
+.envelope-button:hover {
+  animation: none;
+  filter: drop-shadow(0 0 32px #ff4b8b);
+  transform: translate(-50%,-56%) scale(1.08) !important;
+}
+
+.envelope-button:active {
+  transform: translate(-50%,-50%) scale(.94) !important;
+}
+
+#letter-hint {
+  top: 76% !important;
+  left: 50% !important;
+}
+
+.letter-intro {
+  top: 4% !important;
+  left: 28% !important;
+  width: min(44%,460px) !important;
+  transform: translateX(-50%) !important;
+}
+
+.letter-paper {
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%,-50%) !important;
+  width: min(56%,620px) !important;
+}
+
+.letter-next {
+  left: 50% !important;
+}
+
+
+/* ====================================================================
+   4. PICNIC PAGE — #picnic
+   ==================================================================== */
+
+#picnic .content {
+  top: 10%;
+}
+
+#picnic .message {
+  margin-top: 20px;
+  max-width: 480px;
+}
+
+#picnic .btn {
+  margin-top: 24px;
+}
+
+#picnic {
+  background-image: url("assets/Hello Kitty’s Enchanted Garden Picnic.png");
+}
+
+#picnic .content {
+  width: min(90%, 620px);
+  padding: 22px 30px 28px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255,255,255,.9);
+  box-shadow: 0 10px 30px rgba(168,45,97,.2);
+}
+
+
+/* ====================================================================
+   5. MEMORIES / PHOTO GALLERY — #memories
+   ==================================================================== */
+
+#memories {
+  background-image: url("assets/Kawaii Pink Hello Kitty Memory Collage.png");
+}
+
+.memory {
+  position: absolute;
+  z-index: 2;
+  left: var(--x);
+  top: var(--y);
+  width: min(22vh, 19vw);
+  margin: 0;
+  padding: 7px 7px 9px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(120,45,80,.28);
+  transform: translate(-50%,-50%) rotate(var(--r));
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.memory::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 46%;
+  height: 18px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(255,170,200,.75);
+  border-radius: 3px;
+}
+
+.memory:hover, .memory:focus-visible {
+  transform: translate(-50%,-52%) rotate(0) scale(1.07);
+  z-index: 6;
+  box-shadow: 0 14px 30px rgba(120,45,80,.4);
+  outline: none;
+}
+
+.memory-photo {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 3px;
+  background: linear-gradient(135deg,#ffd3e3,#ffb3d0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memory-photo::after {
+  content: "📷";
+  font-size: 2.2rem;
+  opacity: .6;
+}
+
+.memory-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  order: -1;
+}
+
+.memory-photo img + * {
+  display: none;
+}
+
+.memory figcaption {
+  margin-top: 6px;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: clamp(11px, 1.9vh, 16px);
+  line-height: 1.2;
+  text-align: center;
+  color: var(--deep-pink);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.memory-note {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 51%;
+  width: min(40vh, 34vw);
+  padding: 18px 22px;
+  text-align: center;
+  transform: translate(-50%,-50%) rotate(-2deg);
+  background: rgba(255,238,244,.95);
+  border-radius: 8px;
+  box-shadow: 0 10px 26px rgba(120,45,80,.3);
+}
+
+.memory-note p {
+  margin: 0;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: clamp(18px, 3.2vh, 28px);
+  line-height: 1.3;
+  color: var(--deep-pink);
+}
+
+.memory-view {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(80,25,55,.55);
+  backdrop-filter: blur(4px);
+}
+
+.memory-view.open {
+  display: flex;
+  animation: next-in .3s ease both;
+}
+
+.memory-view-card {
+  position: relative;
+  width: min(92vw, 62vh, 520px);
+  padding: 14px 14px 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.4);
+  text-align: center;
+  animation: msg-pop .35s ease;
+}
+
+.memory-view-photo {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  background: linear-gradient(135deg,#ffd3e3,#ffb3d0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.memory-view-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memory-view-card p {
+  margin: 14px 6px 0;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: clamp(20px, 3.4vh, 30px);
+  line-height: 1.35;
+  color: var(--deep-pink);
+}
+
+.memory-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--pink);
+  color: #fff;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+
+.memory-photo {
+  position: relative;
+}
+
+.memory-photo::after {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+.memory-photo img {
+  position: relative;
+  z-index: 1;
+}
+
+.memory-view.open {
+  animation: view-in .3s ease both;
+}
+
+.memory-view-card {
+  animation: card-in .35s ease both;
+}
+
+.memory-view-photo img {
+  display: block;
+}
+
+
+/* ====================================================================
+   6. FLOWER SHOP — #shop
+   ==================================================================== */
+
+#shop {
+  background-image: url("assets/Dreamy\ Kawaii\ Flower\ Shop\ Garden.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.shop-stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  pointer-events: none;
+  width: max(100vw, calc(100svh * 1.7769));
+  height: max(100svh, calc(100vw / 1.7769));
+  transform: translate(-50%,-50%);
+}
+
+.shop-door {
+  position: absolute;
+  left: 12.2%;
+  top: 32%;
+  width: 12.4%;
+  height: 31%;
+  border: 0;
+  border-radius: 48% 48% 6px 6px / 22% 22% 6px 6px;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  animation: door-glow 1.5s ease-in-out infinite alternate;
+}
+
+.shop-enter {
+  position: absolute;
+  left: 18.4%;
+  top: 57%;
+  transform: translate(-50%,-50%);
+  pointer-events: auto;
+  white-space: nowrap;
+  animation: enter-bob 1.6s ease-in-out infinite;
+}
+
+#shop:not([data-step="0"]) .shop-door, #shop:not([data-step="0"]) .shop-enter {
+  display: none;
+}
+
+.sign {
+  position: absolute;
+  left: 83.4%;
+  width: 16.1%;
+  border-radius: 14px;
+  transition: .3s;
+}
+
+.sign.s1 {
+  top: 41%;
+  height: 10%;
+}
+
+.sign.s2 {
+  top: 51%;
+  height: 10%;
+}
+
+.sign.s3 {
+  top: 61%;
+  height: 8%;
+}
+
+.sign.active {
+  box-shadow: 0 0 0 3px #fff, 0 0 22px 8px rgba(255,90,160,.75);
+  animation: sign-glow 1.3s ease-in-out infinite alternate;
+}
+
+.sign.done::after {
+  content: "✓";
+  position: absolute;
+  right: -9px;
+  top: -9px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8407a;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 3px 8px rgba(0,0,0,.25);
+}
+
+#shop .content.shop-head {
+  top: 4%;
+  left: 56%;
+  width: min(54%, 660px);
+  padding: 14px 26px 18px;
+  border-radius: 26px;
+  background: rgba(255,255,255,.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255,255,255,.9);
+  box-shadow: 0 10px 28px rgba(168,45,97,.2);
+}
+
+#shop .shop-head .eyebrow {
+  margin-bottom: 4px;
+}
+
+#shop .shop-head h1 {
+  font-size: clamp(28px, 3.8vw, 50px);
+}
+
+#shop .shop-head .message {
+  margin-top: 8px;
+  max-width: 520px;
+}
+
+.shop-picker, .bouquet-wrap, .shop-clear, .shop-action {
+  display: none;
+  position: absolute;
+  z-index: 4;
+}
+
+.shop-picker {
+  left: 56%;
+  top: 40%;
+  transform: translate(-50%,-50%);
+  width: min(92vw, 640px);
+  padding: 14px 16px 12px;
+  border-radius: 26px;
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid #fff;
+  box-shadow: 0 10px 28px rgba(168,45,97,.22);
+  text-align: center;
+}
+
+.shop-flowers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.fl-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 4px;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  background: rgba(255,240,246,.9);
+  color: var(--text);
+  cursor: pointer;
+  transition: .18s;
+  font-weight: 700;
+  font-size: clamp(11px, 1.3vw, 14px);
+}
+
+.fl-btn svg {
+  width: clamp(38px, 6.4vh, 62px);
+  height: clamp(40px, 6.8vh, 66px);
+}
+
+.fl-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  border-color: #f48fb1;
+  background: #fff;
+}
+
+.fl-btn.full {
+  animation: shake .4s;
+}
+
+.shop-count {
+  margin: 10px 0 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.bouquet-wrap {
+  left: 56%;
+  top: 74%;
+  height: 36vh;
+  aspect-ratio: 300 / 340;
+  transform: translate(-50%,-50%);
+  transition: top .6s ease, height .6s ease;
+}
+
+.bouquet-wrap svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform-origin: 50% 95%;
+  animation: bq-sway 4.5s ease-in-out infinite;
+  filter: drop-shadow(0 10px 14px rgba(120,45,80,.3));
+}
+
+.bq-in {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bq-pop .5s ease both;
+}
+
+#bq-ribbon {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+#bq-ribbon.on {
+  animation: bq-pop .7s ease both;
+}
+
+.shop-clear {
+  left: 40%;
+  top: 78%;
+  transform: translate(-50%,-50%);
+  background: linear-gradient(135deg,#c9a0dc,#a874c9);
+}
+
+.shop-clear:hover {
+  transform: translate(-50%,-52%);
+}
+
+.shop-action {
+  left: 72%;
+  top: 78%;
+  transform: translate(-50%,-50%);
+  white-space: nowrap;
+}
+
+.shop-action:hover {
+  transform: translate(-50%,-52%);
+}
+
+.shop-action[disabled] {
+  opacity: .5;
+  cursor: not-allowed;
+  filter: grayscale(.2);
+}
+
+#shop[data-step="1"] .shop-picker, #shop[data-step="1"] .bouquet-wrap, #shop[data-step="1"] .shop-clear, #shop[data-step="1"] .shop-action {
+  display: block;
+}
+
+#shop[data-step="3"] .bouquet-wrap, #shop[data-step="3"] .shop-action {
+  display: block;
+}
+
+#shop[data-step="3"] .bouquet-wrap {
+  top: 62%;
+  height: 50vh;
+}
+
+#shop[data-step="3"] .shop-action {
+  left: 56%;
+  top: 93%;
+}
+
+.shop-stage {
+  --sh: max(100svh, calc(100vw / 1.7769));
+}
+
+#shop {
+  background-image: url("assets/Dreamy\ Pink\ Flower\ Shop\ Interior.png") !important;
+}
+
+#shop:not([data-step="0"]) .shop-door,
+#shop:not([data-step="0"]) .shop-enter {
+  display: none;
+}
+
+.shop-door {
+  position: absolute;
+  left: 29%;
+  top: 50%;
+  width: 18%;
+  height: 32%;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  border-radius: 8px;
+  animation: door-glow 1.5s ease-in-out infinite alternate;
+}
+
+.shop-enter {
+  position: absolute;
+  left: 37%;
+  top: 56%;
+  transform: translate(-50%,-50%);
+  pointer-events: auto;
+  white-space: nowrap;
+  animation: enter-bob 1.6s ease-in-out infinite;
+}
+
+.cupboard {
+  position: absolute;
+  left: 73%;
+  top: 9%;
+  width: 26%;
+  height: 70%;
+  pointer-events: none;
+  display: none;
+}
+
+#shop[data-step="1"] .cupboard {
+  display: block;
+}
+
+.shelf {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0 8px 4px;
+  pointer-events: auto;
+}
+
+.shelf-top {
+  top: 16%;
+  height: 29%;
+}
+
+.shelf-mid {
+  top: 34%;
+  height: 29%;
+}
+
+.shelf-bot {
+  top: 52%;
+  height: 28%;
+}
+
+.shelf-fl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: rgba(255,255,255,.65);
+  backdrop-filter: blur(2px);
+  transition: .18s;
+  flex: 1;
+  max-width: 28%;
+}
+
+.shelf-fl svg {
+  width: clamp(28px, 5vh, 50px);
+  height: clamp(30px, 5.5vh, 54px);
+}
+
+.shelf-fl span {
+  font-size: clamp(9px, 1.1vw, 12px);
+  font-weight: 700;
+  color: #9c3367;
+  text-align: center;
+}
+
+.shelf-fl:hover {
+  background: #fff;
+  border-color: #f48fb1;
+  transform: translateY(-4px) scale(1.07);
+}
+
+.shelf-fl.full {
+  animation: shake .4s;
+}
+
+.stage-platform {
+  position: absolute;
+  left: 50%;
+  top: 79%;
+  width: 40%;
+  height: 20%;
+  transform: translateX(-50%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+#shop[data-step="1"] .stage-platform,
+#shop[data-step="3"] .stage-platform {
+  display: flex;
+}
+
+.shop-count {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  top: 3%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: rgba(255,255,255,.88);
+  border-radius: 999px;
+  padding: 7px 20px;
+  font-size: clamp(12px,1.4vw,16px);
+  font-weight: 700;
+  color: #9c3367;
+  box-shadow: 0 4px 14px rgba(168,45,97,.18);
+  display: none;
+}
+
+#shop[data-step="1"] .shop-count,
+#shop[data-step="3"] .shop-count {
+  display: block;
+}
+
+.bouquet-wrap {
+  position: absolute !important;
+  left: 50% !important;
+  top: 69% !important;
+  height: min(38vh, 36vw) !important;
+  transform: translate(-50%,-50%) !important;
+  z-index: 6 !important;
+  display: none !important;
+}
+
+#shop[data-step="1"] .bouquet-wrap,
+#shop[data-step="3"] .bouquet-wrap {
+  display: block !important;
+}
+
+#shop[data-step="3"] .bouquet-wrap {
+  top: 72% !important;
+  height: min(44vh,42vw) !important;
+}
+
+.shop-clear {
+  position: absolute !important;
+  z-index: 7;
+  left: 36% !important;
+  top: 92% !important;
+  transform: translate(-50%,-50%) !important;
+  display: none !important;
+}
+
+#shop[data-step="1"] .shop-clear {
+  display: block !important;
+}
+
+.shop-clear:hover {
+  transform: translate(-50%,-56%) !important;
+}
+
+.shop-action {
+  position: absolute !important;
+  z-index: 7;
+  left: 64% !important;
+  top: 92% !important;
+  transform: translate(-50%,-50%) !important;
+}
+
+#shop[data-step="3"] .shop-action {
+  left: 50% !important;
+  top: 94% !important;
+}
+
+.shop-action:hover {
+  transform: translate(-50%,-56%) !important;
+}
+
+.shop-head {
+  z-index: 8 !important;
+  top: 3% !important;
+  left: 50% !important;
+  width: min(68%,700px) !important;
+}
+
+
+/* ====================================================================
+   7. BIRTHDAY CAKE — #cake
+   ==================================================================== */
+
+#cake .content {
+  top: 8%;
+}
+
+.cake-message {
+  margin-top: 10px;
+  font-size: clamp(16px,2.2vw,22px);
+  font-weight: 700;
+}
+
+.cake-emoji {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%,-50%);
+  font-size: clamp(110px,20vw,190px);
+  filter: drop-shadow(0 10px 10px #71334a30);
+}
+
+#cake .btn {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 9%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+#cake {
+  background-image: url("assets/cake.jpg");
+}
+
+.cake-wrap {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%,-50%);
+  width: min(52vw, 54svh * 1.05);
+}
+
+.cakeSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 12px 18px rgba(138,47,90,.28));
+}
+
+.cake-flame {
+  cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flick .18s infinite alternate;
+  filter: drop-shadow(0 0 8px #ffb43a);
+}
+
+.cake-flame.off {
+  animation: none;
+  opacity: 0;
+  transform: scale(.2);
+  transition: .35s;
+  pointer-events: none;
+}
+
+.smk {
+  fill: #cfc9d0;
+  opacity: .85;
+  filter: blur(3px);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: smk 2.4s ease-out forwards;
+}
+
+#cake .btn[disabled] {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: translateX(-50%);
+  filter: none;
+}
+
+#cake .cake-panel {
+  z-index: 10 !important;
+  top: 4% !important;
+  left: 50% !important;
+  width: min(60%, 640px) !important;
+  padding: 14px 24px 18px !important;
+  border-radius: 26px !important;
+  background: rgba(255,255,255,.82) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  border: 1.5px solid rgba(255,255,255,.9) !important;
+  box-shadow: 0 10px 28px rgba(168,45,97,.2) !important;
+}
+
+.cake-wrap {
+  z-index: 5 !important;
+  top: 58% !important;
+}
+
+#cake .btn {
+  z-index: 10 !important;
+  bottom: 5% !important;
+}
+
+
+/* ====================================================================
+   8. FINAL BOUQUET — #finale
+   ==================================================================== */
+
+#finale {
+  background-image: url("assets/Hello Kitty’s Kawaii Rose Garden.png"), radial-gradient(circle at 50% 45%, #fff3f8, #ffd0e3 70%, #ffb7d2);
+}
+
+#finale .content.fb-head {
+  top: 3.5%;
+  width: min(80%, 560px);
+  padding: 10px 24px 14px;
+  border-radius: 26px;
+  background: rgba(255,255,255,.74);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255,255,255,.9);
+  box-shadow: 0 10px 28px rgba(168,45,97,.18);
+}
+
+#finale .fb-head .eyebrow {
+  margin-bottom: 2px;
+}
+
+#finale .fb-head h1 {
+  font-size: clamp(28px, 4vw, 52px);
+}
+
+.fb-bouquet {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 53%;
+  height: min(68vh, 92vw * 1.15);
+  aspect-ratio: 400 / 460;
+  transform: translate(-50%,-50%);
+}
+
+.fb-bouquet svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform-origin: 50% 96%;
+  animation: fb-sway 5s ease-in-out infinite;
+  filter: drop-shadow(0 14px 18px rgba(150,40,90,.3));
+}
+
+.fb-in {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: 50% 60%;
+}
+
+#finale.active .fb-in {
+  animation: fb-bloom .85s cubic-bezier(.2,.9,.3,1.3) var(--d, 0s) both;
+}
+
+.fb-head-flower {
+  cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.fb-head-flower.wig {
+  animation: fb-wig .55s ease;
+}
+
+.fb-actions {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 3.5%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 94%;
+}
+
+.fb-magic {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.fb-magic span {
+  position: absolute;
+  bottom: -8%;
+  animation: fb-rise linear infinite;
+  opacity: 0;
+}
+
+#finale .content.fb-head {
+  left: 44%;
+}
+
+.fb-bouquet {
+  left: 44%;
+}
+
+.fb-actions {
+  left: 44%;
+  width: 70%;
+}
+
+#finale {
+  background-image: url("assets/Hello Kitty’s Kawaii Rose Garden.png");
+}
+
+.fb-bouquet {
+  left: 32%;
+  top: 52%;
+  height: min(72vh, 56vw);
+}
+
+.fb-actions {
+  left: 32%;
+  transform: translateX(-50%);
+  bottom: 3%;
+}
+
+#finale .fb-head {
+  left: 32% !important;
+  top: 3.5% !important;
+  width: min(56%, 500px) !important;
+}
+
+
+/* ====================================================================
+   SHARED CONTROLS — music, navigation and falling decorations
+   ==================================================================== */
+
+.music-control {
+  position: absolute;
+  z-index: 20;
+  top: max(14px,env(safe-area-inset-top));
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #ffffffbb;
+  border-radius: 50%;
+  background: #fff9;
+  color: var(--deep-pink);
+  font-size: 19px;
+  cursor: pointer;
+  box-shadow: 0 3px 12px #73334a20;
+}
+
+.navigation {
+  position: absolute;
+  z-index: 15;
+  left: 0;
+  right: 0;
+  bottom: max(15px,env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.dot {
+  pointer-events: auto;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50px;
+  background: #fffbd0;
+  box-shadow: 0 1px 5px #74314c55;
+  cursor: pointer;
+}
+
+.dot.active {
+  width: 23px;
+  background: #ed5d9b;
+}
+
+#falling-layer {
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.falling {
+  position: absolute;
+  top: -45px;
+  opacity: .9;
+  animation: fall-down linear forwards;
+  will-change: transform;
+}
+
+.memories-next {
+  position: absolute;
+  z-index: 8;
+  right: 4%;
+  bottom: 3.5%;
+  white-space: nowrap;
+}
+
+
+/* ====================================================================
+   ANIMATIONS — keyframes used by the pages above
+   ==================================================================== */
+
+@keyframes paper-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%,-46%) scale(.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+  }
+}
+
+@keyframes fall-down {
+  to {
+    transform: translate3d(var(--drift),110vh,0) rotate(420deg);
+    opacity: .15;
+  }
+}
+
+@keyframes flick {
+  to {
+    transform: scale(1.1,.92) rotate(3deg);
+  }
+}
+
+@keyframes smk {
+  to {
+    transform: translate(var(--dx),-110px) scale(4.5);
+    opacity: 0;
+  }
+}
+
+@keyframes msg-pop {
+  from {
+    transform: translateX(-50%) scale(.9);
+    opacity: .4;
+  }
+
+  to {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes next-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes env-float {
+  50% {
+    transform: translateY(-9px) rotate(1.5deg);
+  }
+}
+
+@keyframes magic-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%,-44%) scale(.55) rotate(-5deg);
+    filter: brightness(1.8) blur(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1) rotate(0);
+    filter: none;
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 220% 0;
+  }
+}
+
+@keyframes twinkle {
+  0%,100% {
+    opacity: .25;
+    transform: scale(.7) rotate(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.25) rotate(25deg);
+  }
+}
+
+@keyframes view-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: scale(.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes door-glow {
+  from {
+    box-shadow: 0 0 0 3px rgba(255,255,255,.8), 0 0 14px 4px rgba(255,120,175,.5);
+  }
+
+  to {
+    box-shadow: 0 0 0 3px #fff, 0 0 30px 12px rgba(255,90,160,.75);
+  }
+}
+
+@keyframes enter-bob {
+  50% {
+    transform: translate(-50%,-58%);
+  }
+}
+
+@keyframes sign-glow {
+  to {
+    box-shadow: 0 0 0 3px #fff, 0 0 34px 14px rgba(255,90,160,.9);
+  }
+}
+
+@keyframes shake {
+  25% {
+    transform: translateX(-6px);
+  }
+
+  75% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes bq-sway {
+  50% {
+    transform: rotate(1.8deg);
+  }
+
+  0%,100% {
+    transform: rotate(-1.8deg);
+  }
+}
+
+@keyframes bq-pop {
+  from {
+    opacity: 0;
+    transform: scale(.3) rotate(-20deg);
+  }
+
+  60% {
+    transform: scale(1.15);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fb-sway {
+  0%,100% {
+    transform: rotate(-1.4deg);
+  }
+
+  50% {
+    transform: rotate(1.4deg);
+  }
+}
+
+@keyframes fb-bloom {
+  from {
+    opacity: 0;
+    transform: scale(.1) rotate(-40deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes fb-wig {
+  20% {
+    transform: rotate(-14deg) scale(1.12);
+  }
+
+  50% {
+    transform: rotate(12deg) scale(1.15);
+  }
+
+  80% {
+    transform: rotate(-6deg) scale(1.05);
+  }
+}
+
+@keyframes fb-rise {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: .95;
+  }
+
+  85% {
+    opacity: .9;
+  }
+
+  100% {
+    transform: translateY(-115vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes hint-bob {
+  50% {
+    transform: translateX(-8px);
+  }
+}
+
+@keyframes ink-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%,-46%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%,-50%);
+  }
+}
+
+@keyframes hk-pulse {
+  0%,100% {
+    filter: drop-shadow(0 0  8px #ff80ab) drop-shadow(0 0 18px #ff4b8b);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 22px #ff80ab) drop-shadow(0 0 44px #ff4b8b88);
+  }
+}
+
+
+/* ====================================================================
+   RESPONSIVE LAYOUT — mobile and portrait-screen adjustments
+   ==================================================================== */
+
+@media (max-width: 600px) {
+  #app {
+    min-height: 520px;
+  }
+
+  #welcome .content {
+    top: 17%;
+  }
+
+  #garden .content {
+    top: 10%;
+  }
+
+  .flower-row {
+    top: 64%;
+    width: 94%;
+    gap: 5px;
+  }
+
+  .flower-label {
+    padding: 7px 2px;
+  }
+
+  .flower-message {
+    top: 79%;
+  }
+
+  .counter {
+    bottom: 7%;
+  }
+
+  #picnic .content {
+    top: 13%;
+  }
+
+  #cake .content {
+    top: 12%;
+  }
+
+  .cake-emoji {
+    top: 57%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #welcome .content {
+    left: 50%;
+    width: 90%;
+    top: 16%;
+  }
+
+  .cake-wrap {
+    width: min(84vw, 46svh * 1.05);
+    top: 56%;
+  }
+}
+
+@media (max-width: 600px) {
+  #welcome .content {
+    top: 21%;
+  }
+
+  #garden .flower-message {
+    top: 78%;
+    min-height: 70px;
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  #welcome .content {
+    top: 27%;
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  #memories .memory {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: rotate(var(--r));
+    width: 38vw;
+    flex: 0 0 auto;
+  }
+
+  #memories .memory:hover {
+    transform: rotate(0) scale(1.04);
+  }
+
+  #memories {
+    overflow-y: auto;
+    display: none;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    gap: 22px 4vw;
+    padding: 24px 4vw 120px;
+  }
+
+  #memories.active {
+    display: flex;
+  }
+
+  .memory-note {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 90%;
+    order: -1;
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  #shop .content.shop-head {
+    left: 50%;
+    width: 92%;
+    top: 3%;
+  }
+
+  .shop-picker {
+    left: 50%;
+    top: 38%;
+  }
+
+  .bouquet-wrap {
+    left: 50%;
+    top: 72%;
+    height: 30vh;
+  }
+
+  .shop-clear {
+    left: 24%;
+    top: 90%;
+  }
+
+  .shop-action {
+    left: 66%;
+    top: 90%;
+  }
+
+  #shop[data-step="3"] .shop-action {
+    left: 50%;
+    top: 92%;
+  }
+
+  #shop[data-step="3"] .bouquet-wrap {
+    top: 60%;
+    height: 40vh;
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .fb-bouquet {
+    top: 50%;
+    height: min(56vh, 92vw * 1.15);
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  #finale .content.fb-head, .fb-bouquet, .fb-actions {
+    left: 50%;
+  }
+
+  .fb-actions {
+    width: 94%;
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  #letter .envelope-button {
+    left: 50% !important;
+    top: 32% !important;
+  }
+
+  #letter .letter-hint {
+    left: 50% !important;
+    top: 54% !important;
+  }
+
+  .letter-paper {
+    left: 50% !important;
+  }
+
+  .letter-next {
+    left: 50% !important;
+  }
+
+  .fb-bouquet {
+    left: 50%;
+    top: 48%;
+    height: min(55vh, 88vw);
+  }
+
+  .fb-actions {
+    left: 50%;
+  }
+
+  #finale .fb-head {
+    left: 50% !important;
+    width: min(90%, 480px) !important;
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .cupboard {
+    left: 68%;
+    width: 30%;
+  }
+
+  .bouquet-wrap {
+    left: 50% !important;
+    top: 65% !important;
+  }
+
+  .shop-clear {
+    left: 28% !important;
+    top: 90% !important;
+  }
+
+  .shop-action {
+    left: 72% !important;
+    top: 90% !important;
+  }
+}
+
+/* =========================================
+   LETTER PAGE — OPEN BUTTON ON BACKGROUND
+   ========================================= */
+
+#letter .open-letter-btn {
+  position: absolute !important;
+  left: 50% !important;
+  top: 54% !important;
+  transform: translate(-50%, -50%) !important;
+
+  width: clamp(110px, 15vw, 190px);
+  height: clamp(48px, 7vh, 68px);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  border: 2px solid #fff !important;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff9ec5, #ed4f91) !important;
+
+  color: white;
+  font-family: Quicksand, sans-serif;
+  font-size: clamp(15px, 2vw, 21px);
+  font-weight: 700;
+
+  box-shadow: 0 0 15px #ff80ab,
+              0 0 30px #ff80ab88;
+
+  cursor: pointer;
+  animation: open-glow 1.7s ease-in-out infinite alternate;
+}
+
+#letter .open-letter-btn:hover {
+  transform: translate(-50%, -55%) scale(1.08) !important;
+}
+
+.open-letter-heart {
+  font-size: 1.1em;
+}
+
+@keyframes open-glow {
+  from {
+    box-shadow: 0 0 10px #ff80ab,
+                0 0 18px #ff80ab66;
+  }
+
+  to {
+    box-shadow: 0 0 22px #ff80ab,
+                0 0 40px #ff4b8b99;
+  }
+}
+
+
+/* =========================================
+   CAKE PAGE — PREVENT FLAME OVERLAP
+   ========================================= */
+
+#cake .cake-panel {
+  top: 2% !important;
+  left: 50% !important;
+  z-index: 10 !important;
+  width: min(58%, 620px) !important;
+  padding: 12px 20px 14px !important;
+}
+
+#cake .cake-wrap {
+  top: 67% !important;
+  width: min(46vw, 48svh * 1.05) !important;
+  z-index: 5 !important;
+}
+
+#cake #thank-you {
+  z-index: 12 !important;
+  bottom: 4% !important;
+}
+
+@media (max-width: 600px) {
+  #cake .cake-panel {
+    top: 3% !important;
+    width: 90% !important;
+    padding: 10px 14px !important;
+  }
+
+  #cake .cake-wrap {
+    top: 65% !important;
+    width: min(78vw, 43svh * 1.05) !important;
+  }
+}
+
+
+/* =========================================
+   LETTER PAGE — READING BACKGROUND + TEXT
+   -----------------------------------------
+   Step 1: #letter shows the "Letter Room" image (envelope to tap).
+   Step 2: openLetter() adds .reading to #letter, which crossfades in
+           the "Letter Garden" image (blank parchment) and fades the
+           letter text onto it.
+   The letter lives inside .letter-stage, which is the same size as the
+   cover-fitted background, so percentages below are percentages of the
+   IMAGE and stay lined up with the parchment on any screen.
+   Parchment safe area (of the 1672x941 image):
+   x 41% to 80%, y 20% to 85%  (clear of the bow, hearts and teddy).
+   ========================================= */
+
+#letter::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: url("assets/Hello\ Kitty’s\ Dreamy\ Pink\ Letter\ Garden.png") center / cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .8s ease;
+}
+
+#letter.reading::after {
+  opacity: 1;
+}
+
+#letter .letter-paper {
+  left: 60.5% !important;
+  top: 52.5% !important;
+  width: 39% !important;
+  height: 65% !important;
+  max-height: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  transform: translate(-50%, -50%) !important;
+  font-size: calc(var(--sh) * .0245);
+  text-align: left;
+}
+
+#letter .letter-paper.open {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: ink-in .9s .35s ease both !important;
+}
+
+#letter .letter-paper p {
+  margin: .45em 0;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+#letter .letter-paper .letter-orn {
+  margin: 0 0 .1em;
+  font-size: .8em;
+  text-align: center;
+}
+
+#letter .letter-paper h2 {
+  margin: .05em 0 .45em !important;
+  font-size: calc(var(--sh) * .054);
+  line-height: 1.15;
+  text-align: center;
+}
+
+#letter .letter-paper .letter-sign {
+  margin-top: .7em;
+  text-align: right;
+  font-size: calc(var(--sh) * .036) !important;
+  line-height: 1.3;
+}
+
+#letter .letter-paper .spark.s1 { top: -4%;   left: -2%;  }
+#letter .letter-paper .spark.s2 { top: 4%;    right: -2%; }
+#letter .letter-paper .spark.s3 { bottom: 14%; left: -3%;  }
+#letter .letter-paper .spark.s4 { bottom: -4%; right: 0;   }
+
+/* "Next" button sits on the checkered cloth, centred under the parchment */
+#letter .letter-next {
+  left: calc(50% + .105 * max(100vw, 177.69svh)) !important;
+  bottom: 2.2%;
+}
+
+/* Portrait phones / tablets: the wide image is cropped, so slide the stage
+   until the parchment centre is the screen centre, and size the text to the screen. */
+@media (max-aspect-ratio: 5/4) {
+  #letter::after {
+    background-position: calc(50% - .11 * 177.69svh) center;
+  }
+
+  #letter .letter-stage {
+    transform: translate(-61%, -50%);
+  }
+
+  #letter .letter-paper {
+    left: 61% !important;
+    top: 53% !important;
+    width: min(84vw, 740px) !important;
+    height: 64% !important;
+    font-size: clamp(14px, min(4.1vw, 2.3svh), 22px);
+  }
+
+  #letter .letter-paper h2 {
+    font-size: clamp(30px, min(8.4vw, 4.6svh), 50px);
+  }
+
+  #letter .letter-paper .letter-sign {
+    font-size: clamp(22px, min(6.2vw, 3.4svh), 34px) !important;
+  }
+
+  #letter .letter-next {
+    left: 50% !important;
+    bottom: 3%;
+  }
+}
+
+/* ====================================================================
+   FLOWER SHOP — switch from the supplied exterior to the supplied interior
+   ==================================================================== */
+#shop::before{
+  background-image: url("assets/Dreamy\ Kawaii\ Flower\ Shop\ Garden.png");
+  background-position: center;
+  background-size: cover;
+}
+
+#shop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("assets/Dreamy Pink Flower Shop Interior.png") center / cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .7s ease;
+}
+
+#shop[data-step="1"]::after,
+#shop[data-step="3"]::after {
+  opacity: 1;
+}
+
+/* Keep the entrance hotspot over the door in the exterior artwork. */
+#shop .shop-door {
+  left: 12%;
+  top: 34%;
+  width: 14%;
+  height: 34%;
+}
+
+#shop .shop-enter {
+  left: 19%;
+  top: 60%;
+}
+
+/* The background art has painted-in signs, so do not look for DOM sign controls. */
+#shop .shop-count {
+  top: 19%;
+  z-index: 9;
+}
+
+#shop .bouquet-wrap {
+  top: 69% !important;
+  height: min(40vh, 36vw) !important;
+}
+
+#shop[data-step="3"] .bouquet-wrap {
+  top: 68% !important;
+  height: min(47vh, 43vw) !important;
+}
+
+@media (max-aspect-ratio: 5/4) {
+  /* The exterior door sits left of center in the wide artwork. Pan to it. */
+  #shop[data-step="0"] {
+    background-position: 12% center;
+  }
+
+  #shop[data-step="0"] .shop-stage {
+    transform: translate(calc(-50% + 50svh), -50%);
+  }
+
+  /* On phones, bring the flower shelves into a tappable panel on screen. */
+  #shop[data-step="1"] .shop-stage,
+  #shop[data-step="3"] .shop-stage {
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100svh;
+    transform: none;
+  }
+
+  #shop[data-step="1"] .cupboard {
+    left: 4%;
+    top: 27%;
+    width: 92%;
+    height: 34%;
+    padding: 8px;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 22px;
+    background: rgba(255,248,252,.88);
+    box-shadow: 0 10px 26px rgba(120,45,80,.2);
+    backdrop-filter: blur(5px);
+  }
+
+  #shop[data-step="1"] .shelf {
+    padding: 0 2px 3px;
+  }
+
+  #shop .shop-head {
+    top: 3% !important;
+    width: 92% !important;
+    padding: 10px 14px 12px;
+  }
+
+  #shop .shop-head h1 {
+    font-size: clamp(27px, 8vw, 40px);
+  }
+
+  #shop .shop-head .message {
+    margin-top: 5px;
+    font-size: 13px;
+  }
+
+  #shop .shop-count {
+    top: 22%;
+    max-width: 92%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  #shop .bouquet-wrap {
+    top: 68% !important;
+    height: min(38svh, 70vw) !important;
+  }
+
+  #shop[data-step="3"] .bouquet-wrap {
+    top: 68% !important;
+    height: min(43svh, 78vw) !important;
+  }
+
+  #shop .shop-clear {
+    left: 27% !important;
+    top: 92% !important;
+  }
+
+  #shop .shop-action {
+    left: 73% !important;
+    top: 92% !important;
+  }
+
+  #shop[data-step="3"] .shop-action {
+    left: 50% !important;
+    top: 93% !important;
+  }
+}
+
+/* Download the completed bouquet as a keepsake image. */
+.shop-download {
+  display: none;
+  position: absolute !important;
+  z-index: 7;
+  left: 66% !important;
+  top: 92% !important;
+  transform: translate(-50%, -50%) !important;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #a7c97b, #69a95e);
+}
+
+.shop-download:hover {
+  transform: translate(-50%, -56%) !important;
+}
+
+.shop-download:disabled {
+  opacity: .7;
+  cursor: wait;
+}
+
+#shop[data-step="3"] .shop-download {
+  display: inline-flex;
+}
+
+#shop[data-step="3"] .shop-action {
+  left: 39% !important;
+}
+
+@media (max-aspect-ratio: 5/4) {
+  #shop[data-step="3"] .shop-action {
+    left: 50% !important;
+    top: 84% !important;
+  }
+
+  #shop[data-step="3"] .shop-download {
+    left: 50% !important;
+    top: 93% !important;
+  }
+}
+/* Keep flower shelf buttons clickable */
+#shop .shelf-fl {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
+}
